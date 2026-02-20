@@ -2,8 +2,10 @@ const btnEl = document.querySelector('.btn');
 const inputEl = document.getElementById('input');
 const copyIconEl = document.querySelector('.fa-copy');
 const alertContainerEl = document.querySelector(".alert-container");
+let password = "";
 
 btnEl.addEventListener("click", () => {
+    password = "";
     createPassword();
 })
 
@@ -15,7 +17,6 @@ copyIconEl.addEventListener("click", () => {
             alertContainerEl.classList.add("active");
         }, 2000)
     }
-    
 })
 
 function createPassword(){
@@ -27,7 +28,6 @@ function createPassword(){
         password += chars[randomNum];
     }
     inputEl.value = password;
-    alertContainerEl.innerText = password + " copied!"
 }
 
 function copyPassword(){
@@ -36,4 +36,5 @@ function copyPassword(){
     inputEl.setSelectionRange(0, 9999);
     // This is responsible for coping on clipboard instead of ctrl+c
     navigator.clipboard.writeText(inputEl.value);
+    alertContainerEl.innerText = password + " copied!";
 }
