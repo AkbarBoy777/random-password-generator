@@ -25,7 +25,6 @@ function createPassword(){
     for (let index = 0; index < passwordLength; index++) {
         const randomNum = Math.floor(Math.random() * chars.length)
         password += chars[randomNum];
-        console.log(randomNum, password);
     }
     inputEl.value = password;
     alertContainerEl.innerText = password + " copied!"
